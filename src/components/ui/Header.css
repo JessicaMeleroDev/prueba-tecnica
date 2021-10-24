@@ -1,0 +1,13 @@
+.container {
+    background-color: #333333;
+    color: white;
+}
+.aling-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem 0 2rem;
+}
+.icon {
+    align-self: center;
+}
