@@ -1,10 +1,11 @@
 import React from 'react'
 import './Image.css'
-const Image = () => {
+const Image = ({url}) => {
+    console.log(url);
     return (
         <div className="margin">
             <img
-                src="https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg"
+                src={url}
                 alt="Producto"
                 width="300"
                 height="400"

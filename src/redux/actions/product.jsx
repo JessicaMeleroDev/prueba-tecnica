@@ -22,10 +22,38 @@ export const startGetProducts = () => {
     }
 }
 
+export const startGetDetailProduct = (id) => {
+    return async (dispatch) => {
+        // dispatch(loadData(true));
+        try {
+            const response = await clientAxios.get(`product/${id}`);
+
+            const { status, data } = response;
+            console.log(data);
+            if (status === 200) {
+                dispatch(getDetailProduct(data))
+            }
+            // dispatch(loadData(false));
+
+        } catch (error) {
+            dispatch(loadData(false));
+        }
+
+        console.log("startGetDetailsProducts");
+    }
+}
+
 export const getProducts = (products = []) => {
     return {
         type: Types.setProducts,
         payload: products
+    }
+}
+
+export const getDetailProduct = (detailsProduct = []) => {
+    return {
+        type: Types.setDetailProduct,
+        payload: detailsProduct
     }
 }
 

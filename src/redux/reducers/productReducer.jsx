@@ -15,6 +15,12 @@ export const productReducer = (state = initialState, action) => {
                 products: action.payload
             }
 
+        case Types.setDetailProduct:
+            return {
+                ...state,
+                detailsProduct: action.payload
+            }
+
         case Types.setLoadData:
             return {
                 ...state,
