@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import Home from "../pages/Home";
+import ProductDetails from "../pages/ProductDetails";
 
 const AppRouter = () => {
   return (
@@ -12,6 +13,9 @@ const AppRouter = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/product-details">
+            <ProductDetails />
           </Route>
         </Switch>
     </Router>

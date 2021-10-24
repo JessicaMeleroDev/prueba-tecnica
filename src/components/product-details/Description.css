@@ -1,0 +1,10 @@
+.description {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color:  #cfe2e2    ;
+    border-width: 1rem;
+    border-radius: 1rem;
+}
