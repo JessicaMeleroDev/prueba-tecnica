@@ -1,6 +1,8 @@
 import React from 'react';
 import Description from './Description';
 import Image from './Image';
+import Actions from './Actions';
+
 import './Details.css';
 
 const Details = () => {
@@ -9,9 +11,7 @@ const Details = () => {
             <Image />
             <div className="container-right">
                 <Description />
-                <div>
-                    <p>Actions</p>
-                </div>
+                <Actions />
             </div>
         </div>
     )

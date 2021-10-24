@@ -1,3 +1,6 @@
 .margin {
+    display: flex;
     margin-top: 1rem;
+    align-self: center;
+    background-color: cornflowerblue;
 }
