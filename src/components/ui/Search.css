@@ -1,0 +1,15 @@
+.container-search {
+    display: flex;
+    align-items: flex-end;
+}
+
+.search{
+    width: 40vw;
+    height: 5vh;
+}
+
+label {
+    display: flex;
+    align-self: flex-start;
+    padding: 0.3rem;
+}
