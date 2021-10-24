@@ -14,7 +14,7 @@ const AppRouter = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/product-details">
+          <Route exact path="/product-details/:id">
             <ProductDetails />
           </Route>
         </Switch>

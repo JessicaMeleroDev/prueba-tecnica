@@ -11,3 +11,12 @@
 .icon {
     align-self: center;
 }
+
+.link{
+    cursor: pointer;
+}
+
+.link:hover{
+    cursor: pointer;
+    color: cornsilk;
+}
