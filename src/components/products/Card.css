@@ -5,6 +5,9 @@
 }
 
 .container-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2px 16px;
 }
 
@@ -22,4 +25,8 @@ button {
 
 button:hover {
   background-color: #737373;
+}
+
+.unavailable {
+  color: red;
 }

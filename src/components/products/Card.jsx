@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { useHistory } from 'react-router-dom';
 
 import './Card.css';
 
-const Card = () => {
+const Card = ({ id, brand, model, imgUrl, price }) => {
     const history = useHistory();
 
     const goDetails = (id) => {
@@ -12,19 +14,28 @@ const Card = () => {
 
     return (
         <div className="card">
-            <img 
-                src="https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg" 
-                alt="Producto" 
+            <img
+                src={imgUrl}
+                alt="Producto"
                 width="200"
-                height="300" 
+                height="300"
             />
             <div className="container-details">
-                <h4>Acer Iconia Talk S</h4>
-                <p>170 €</p>
+                <p>{brand} {model}</p>
+                {price ? <p>{price} €</p> : <p className="unavailable">NO DISPONBLE</p>} 
             </div>
-            <button onClick={() => goDetails(1234)}>Ver detalles</button>
+            
+            <button onClick={() => goDetails(id)}>Ver detalles</button>
         </div>
     )
+}
+
+Card.propTypes = {
+    id: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
 }
 
 export default Card;
