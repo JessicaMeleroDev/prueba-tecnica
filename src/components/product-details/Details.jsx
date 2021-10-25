@@ -15,17 +15,15 @@ const Details = () => {
 
     const {id} = useParams();
 
-    const { detailsProduct } = useSelector((state) => state.products);
-
+    const { detailsProduct,loadDataGetDetails } = useSelector((state) => state.products);
 
     useEffect(() => {
         dispatch(startGetDetailProduct(id))
-    }, [])
+    }, [id,dispatch]);
 
+    if(loadDataGetDetails) return <p>Cargando datos ...</p>
 
-    if(!detailsProduct){
-        return <p>Cargando..</p>
-    }
+    if(!detailsProduct) return <p>No hay productos</p>
 
     return (
         <div className="container-details">

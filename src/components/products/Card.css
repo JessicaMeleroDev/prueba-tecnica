@@ -25,6 +25,7 @@ button {
 
 button:hover {
   background-color: #737373;
+  cursor: pointer;
 }
 
 .unavailable {

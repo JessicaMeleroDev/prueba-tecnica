@@ -1,48 +1,88 @@
 import clientAxios from "../../utils/axios";
+import { checkCron } from "../../utils/cleanCache";
 import Types from '../types/types';
 
 export const startGetProducts = () => {
     return async (dispatch) => {
-        dispatch(loadData(true));
-        try {
-            const response = await clientAxios.get("product");
 
-            const { status, data } = response;
+        checkCron();
 
-            if (status === 200) {
-                dispatch(getProducts(data))
+        const localProducts = localStorage.getItem('products');
+
+        if(!localProducts){
+            dispatch(loadData(true));
+            try {
+                const response = await clientAxios.get("product");
+    
+                const { status, data } = response;
+    
+                if (status === 200) {
+                    dispatch(getProducts(data))
+                }
+                dispatch(loadData(false));
+    
+            } catch (error) {
+                dispatch(loadData(false));
             }
-            dispatch(loadData(false));
-
-        } catch (error) {
-            dispatch(loadData(false));
+        }else {
+            dispatch(getProducts(JSON.parse(localProducts)))
         }
-
-        console.log("startGetProducts");
     }
 }
 
 export const startGetDetailProduct = (id) => {
     return async (dispatch) => {
-        // dispatch(loadData(true));
+
+        dispatch(loadDataGetDetails(true));
         try {
             const response = await clientAxios.get(`product/${id}`);
 
             const { status, data } = response;
-            console.log(data);
+
             if (status === 200) {
                 dispatch(getDetailProduct(data))
             }
-            // dispatch(loadData(false));
+
+
+            dispatch(loadDataGetDetails(false));
 
         } catch (error) {
-            dispatch(loadData(false));
+            dispatch(loadDataGetDetails(false));
         }
-
-        console.log("startGetDetailsProducts");
     }
 }
 
+/* 
+    product: {
+        id: 0001,
+        colorCode: 1,
+        storageCode: 2
+    }
+*/
+export const startInsertProductBasket = (product) => {
+    return async (dispatch) => {
+
+        try {
+            const response = await clientAxios.post('cart',product);
+
+            const {count}  = response.data;
+
+            if(count){
+                dispatch(insertProductBasket(count));
+            }
+
+        } catch (error) {
+            
+        }
+    }
+}
+
+export const insertProductBasket = (mount) => {
+    return {
+        type: Types.setProductBasket,
+        payload: mount
+    }
+}
 export const getProducts = (products = []) => {
     return {
         type: Types.setProducts,
@@ -64,9 +104,16 @@ export const loadData = (isLoandingData) => {
     }
 }
 
+export const loadDataGetDetails = (isLoandingData) => {
+    return {
+        type: Types.setLoadDataGetDetails,
+        payload: isLoandingData
+    }
+}
+
 export const filterProducts = (filter) => {
     return {
         type: Types.filterProducts,
         payload: filter,
-      };
+    };
 }

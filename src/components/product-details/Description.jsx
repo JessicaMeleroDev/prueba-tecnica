@@ -6,7 +6,6 @@ const Description = () => {
 
     const { detailsProduct } = useSelector((state) => state.products);
 
-    console.log(detailsProduct)
     const {
         brand,
         model,
@@ -43,7 +42,12 @@ const Description = () => {
             <ul>
                 <li><strong>Marca:</strong> {brand}</li>
                 <li><strong>Modelo:</strong> {model}</li>
-                <li><strong>Precio:</strong> {price} €</li>
+                <li> <strong>Precio:</strong>
+                    {
+                        price ? price + '€' : ' No disponible'
+                    }
+                </li>
+
                 <li><strong>CPU:</strong> {cpu}</li>
                 <li><strong>RAM:</strong> {ram}</li>
                 <li><strong>Sistema operativo:</strong> {so} </li>
@@ -67,7 +71,7 @@ const Description = () => {
                 <li><strong>Dimensiones:</strong> {dimentions} </li>
                 <li><strong>Peso:</strong> {weight} gr</li>
             </ul>
-        </div>
+        </div >
     )
 }
 

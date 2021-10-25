@@ -14,7 +14,7 @@ const ProductList = () => {
 
     useEffect(() => {
         dispatch(startGetProducts())
-    }, [])
+    }, [dispatch])
 
     return (
         <Fragment>

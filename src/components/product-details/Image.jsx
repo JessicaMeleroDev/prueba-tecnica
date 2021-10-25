@@ -1,7 +1,7 @@
 import React from 'react'
 import './Image.css'
 const Image = ({url}) => {
-    console.log(url);
+
     return (
         <div className="margin">
             <img

@@ -3,13 +3,15 @@ import Types from '../types/types';
 const initialState = {
     products: [],
     detailsProduct: null,
-    loadData: false
+    mount:0,
+    loadData: false,
+    loadDataGetDetails:false
 }
 
 export const productReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case Types.setProducts:
+            localStorage.setItem('products',JSON.stringify(action.payload));
             return {
                 ...state,
                 products: action.payload
@@ -20,7 +22,16 @@ export const productReducer = (state = initialState, action) => {
                 ...state,
                 detailsProduct: action.payload
             }
-
+        case Types.setProductBasket:
+            return {
+                ...state,
+                mount:action.payload
+            }
+        case Types.setLoadDataGetDetails:
+            return {
+                ...state,
+                loadDataGetDetails: action.payload
+            }
         case Types.setLoadData:
             return {
                 ...state,
