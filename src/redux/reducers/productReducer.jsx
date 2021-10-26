@@ -4,6 +4,7 @@ const initialState = {
     products: [],
     detailsProduct: null,
     mount:0,
+    setProductBasketSuccess:false,
     loadData: false,
     loadDataGetDetails:false
 }
@@ -25,7 +26,13 @@ export const productReducer = (state = initialState, action) => {
         case Types.setProductBasket:
             return {
                 ...state,
-                mount:action.payload
+                mount:action.payload,
+                setProductBasketSuccess:true
+            }
+        case Types.refreshProductBasket:
+            return {
+                ...state,
+                setProductBasketSuccess:false
             }
         case Types.setLoadDataGetDetails:
             return {
@@ -37,7 +44,6 @@ export const productReducer = (state = initialState, action) => {
                 ...state,
                 loadData: action.payload
             }
-
         case Types.filterProducts:
             return {
                 ...state,

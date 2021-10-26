@@ -71,6 +71,10 @@ export const startInsertProductBasket = (product) => {
                 dispatch(insertProductBasket(count));
             }
 
+            setTimeout(() => {
+                dispatch(refreshProductBasket(false));
+            }, 2500);
+
         } catch (error) {
             
         }
@@ -81,6 +85,13 @@ export const insertProductBasket = (mount) => {
     return {
         type: Types.setProductBasket,
         payload: mount
+    }
+}
+
+export const refreshProductBasket = (isSucces) => {
+    return {
+        type: Types.refreshProductBasket,
+        payload: isSucces
     }
 }
 export const getProducts = (products = []) => {
