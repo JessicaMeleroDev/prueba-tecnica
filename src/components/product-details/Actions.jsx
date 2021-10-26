@@ -15,7 +15,7 @@ const Actions = () => {
     const [selectedColor, setColor] = useState('Elije un color')
     const [selectedStorage, setStorage] = useState('Elije un almacenamiento')
 
-    const { detailsProduct } = useSelector((state) => state.products);
+    const { detailsProduct, setProductBasketSuccess } = useSelector((state) => state.products);
 
     useEffect(() => {
         if (detailsProduct) {
@@ -79,6 +79,11 @@ const Actions = () => {
                 <button onClick={goHome}>Volver atrás</button>
             </div>}
 
+            {
+                setProductBasketSuccess && <div className="container-msg">
+                    <p className="text-msg">Producto añadido correctamente</p>
+                </div>
+            }
 
 
         </div>
