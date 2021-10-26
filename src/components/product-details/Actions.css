@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: .5rem;
+    margin-bottom: 1rem;
     background-color: #f2f2f2;
     border-width: 1rem;
     border-radius: 1rem;
@@ -16,6 +17,17 @@
     margin-top: .5rem;
     padding: 1rem;
     justify-content: space-evenly;
+}
+
+.container-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-msg {
+    width: 50vw;
+    font-size: 18px;
 }
 
 select {

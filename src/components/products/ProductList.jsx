@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetProducts } from '../../redux/actions/product';
+import EmptySearch from '../ui/EmptySearch';
 import Search from '../ui/Search';
 import Card from './Card';
 
@@ -13,8 +14,8 @@ const ProductList = () => {
     const { products, loadData } = useSelector((state) => state.products);
 
     useEffect(() => {
-        dispatch(startGetProducts())
-    }, [dispatch])
+        dispatch(startGetProducts());
+    }, [dispatch]);
 
     return (
         <Fragment>
@@ -25,7 +26,7 @@ const ProductList = () => {
                 {loadData && <p>Cargando datos....</p>}
 
                 {!loadData &&
-
+                    products.length < 1 ? <EmptySearch /> :
                     products.map((product) => {
                         const { id, brand, model, imgUrl, price } = product;
                         return (

@@ -38,7 +38,7 @@ const Description = () => {
 
     return (
         <div className="description">
-            <h2>Descripcion</h2>
+            <h2>Descripción</h2>
             <ul>
                 <li><strong>Marca:</strong> {brand}</li>
                 <li><strong>Modelo:</strong> {model}</li>

@@ -5,6 +5,8 @@ import { useDispatch,useSelector } from 'react-redux';
 import Description from './Description';
 import Image from './Image';
 import Actions from './Actions';
+import EmptySearch from '../ui/EmptySearch';
+
 import { startGetDetailProduct } from '../../redux/actions/product';
 
 import './Details.css';
@@ -23,7 +25,7 @@ const Details = () => {
 
     if(loadDataGetDetails) return <p>Cargando datos ...</p>
 
-    if(!detailsProduct) return <p>No hay productos</p>
+    if(!detailsProduct) return <EmptySearch />
 
     return (
         <div className="container-details">
