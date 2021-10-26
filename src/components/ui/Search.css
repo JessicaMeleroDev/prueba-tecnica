@@ -3,6 +3,18 @@
     align-items: flex-end;
 }
 
+.container-breadcrumbs {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:1rem;
+}
+
+.text-breadcrumbs {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .search{
     width: 40vw;
     height: 5vh;
