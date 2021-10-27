@@ -22,15 +22,12 @@ Una vez terminada la instalación, levantaremos el proyecto con
 npm run start
 ```
 
-
 ## Ejecutando las pruebas ⚙️
 
 Para ejecutar todos los test ejecutaremos
 ```
 npm run test
 ```
-
-
 
 ## Despliegue 📦
 
@@ -42,8 +39,12 @@ npm run build
 ## Construido con 🛠️
 
 El proyecto está creado con [Create React App](https://github.com/facebook/create-react-app).
+Para la creación de estilos se ha usado CSS puro.
+Para la creación de los tests se ha utilizado Jest y la librería Enzyme.
 
 ## Versionado 📌
 
 Se ha usado [GIT](https://git-scm.com/) para el versionado.
 
+Los últimos cambios están todos en la rama dev.
+Exiten otras 2 ramas, feature/product-list-page y feature/product-details-page en las cuales se ha ido creando toda la funcionalidad en función de la página.
